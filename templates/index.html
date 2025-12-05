@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guru Krupa Astrology And Vastu Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #3694d3;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .app-wrapper {
+            width: 100%;
+            max-width: 480px;
+            height: 100vh;
+            background: linear-gradient(180deg, #25d366, #00a1ff);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #28a745, #007bff);
+            transform: scale(1.05);
+        }
+
+
+        .contact-item:hover .contact-icon {
+            background: linear-gradient(90deg, #d42fbe, #2e6fd1);
+            transform: scale(1.05);
+        }
+
+        .contact-text:hover {
+
+            transform: scale(1.05);
+        }
+
+        .app-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 16px 80px
+        }
+
+        .cube-wrapper {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 900px
+        }
+
+        .cube {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            transform-style: preserve-3d;
+            animation: spin 10s linear infinite
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 18px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .45)
+        }
+
+        .cube-face.front {
+            transform: translateZ(85px);
+            background-image: url("astrology1.jpg")
+        }
+
+        .cube-face.back {
+            transform: rotateY(180deg) translateZ(85px);
+            background-image: url("astrology2.jpg")
+        }
+
+        .cube-face.right {
+            transform: rotateY(90deg) translateZ(85px);
+            background-image: url("astrology3.jpg")
+        }
+
+        .cube-face.left {
+            transform: rotateY(-90deg) translateZ(85px);
+            background-image: url("astrology4.jpg")
+        }
+
+        .cube-face.top {
+            transform: rotateX(90deg) translateZ(85px);
+            background-image: url("astrology5.jpg")
+        }
+
+        .cube-face.bottom {
+            transform: rotateX(-90deg) translateZ(85px);
+            background-image: url("astrology6.jpg")
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotateX(-20deg) rotateY(0deg)
+            }
+
+            50% {
+                transform: rotateX(20deg) rotateY(180deg)
+            }
+
+            100% {
+                transform: rotateX(-20deg) rotateY(360deg)
+            }
+        }
+
+        .logo-under-cube {
+            text-align: center;
+            margin-bottom: 10px
+        }
+
+        .logo-under-cube-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            text-transform: uppercase
+        }
+
+        .logo-under-cube-title span {
+            display: block
+        }
+
+        .owner {
+            margin-top: 8px;
+            font-size: 13px
+        }
+
+        .owner strong {
+            display: block;
+            font-size: 14px
+        }
+
+        .owner span {
+            font-size: 11px;
+            letter-spacing: .8px
+        }
+
+        .action-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 14px 0 18px
+        }
+
+        .btn-pill {
+            flex: 1;
+            max-width: 110px;
+            border-radius: 999px;
+            border: none;
+            background: #111;
+            color: #fff;
+            font-size: 13px;
+            padding: 8px 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer
+        }
+
+        .btn-pill i {
+            font-size: 12px
+        }
+
+        .contact-list {
+            background: rgba(255, 255, 255, .15);
+            border-radius: 18px;
+            padding: 14px 12px;
+            margin-bottom: 16px
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0
+        }
+
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: #fff;
+            font-size: 14px
+        }
+
+        .contact-text {
+            font-size: 13px
+        }
+
+        .contact-text a {
+            text-decoration: none;
+            color: #000
+        }
+
+        .share-whatsapp-card {
+            background: #000;
+            border-radius: 18px;
+            padding: 12px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 16px
+        }
+
+        .share-whatsapp-card input {
+            flex: 1;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 8px;
+            font-size: 13px
+        }
+
+        .share-whatsapp-card button {
+            border: none;
+            border-radius: 8px;
+            padding: 10px 10px;
+            font-size: 13px;
+            font-weight: 600;
+            background: #25d366;
+            color: #fff;
+            white-space: nowrap;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .share-whatsapp-card button i {
+            font-size: 14px
+        }
+
+        .bottom-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px
+        }
+
+        .bottom-actions button {
+            flex: 1;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 8px;
+            background: #ffca28;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px
+        }
+
+        .bottom-actions button i {
+            font-size: 14px
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn .35s ease
+        }
+
+        .page.active {
+            display: block
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .page-heading {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase
+        }
+
+        .card {
+            background: rgba(255, 255, 255, .15);
+            border-radius: 18px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            line-height: 1.5
+        }
+
+        .product-list {
+            list-style: none
+        }
+
+        .product-list li {
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .06)
+        }
+
+        .product-list li:last-child {
+            border-bottom: none
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px
+        }
+
+        .shop-item {
+            background: rgba(255, 255, 255, .15);
+            border-radius: 14px;
+            padding: 10px;
+            font-size: 12px;
+            text-align: center
+        }
+
+        .shop-item span {
+            display: block;
+            margin-top: 4px;
+            font-weight: 600
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px
+        }
+
+        .gallery-cell {
+            background: rgba(0, 0, 0, .15);
+            border-radius: 8px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px
+        }
+
+        .bottom-nav {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 64px;
+            background: #000;
+            display: flex;
+            padding: 6px 4px 8px;
+            justify-content: space-around
+        }
+
+        .nav-item {
+            flex: 1;
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            cursor: pointer;
+            opacity: .6
+        }
+
+        .nav-item i {
+            font-size: 18px
+        }
+
+        .nav-item.active {
+            opacity: 1
+        }
+
+        .nav-indicator {
+            position: absolute;
+            bottom: 4px;
+            height: 2px;
+            width: 18%;
+            border-radius: 999px;
+            background: #ffc400;
+            left: 3%;
+            transition: transform .2s ease
+        }
+
+        .nav-indicator.pos-0 {
+            transform: translateX(0)
+        }
+
+        .nav-indicator.pos-1 {
+            transform: translateX(115%)
+        }
+
+        .nav-indicator.pos-2 {
+            transform: translateX(230%)
+        }
+
+        .nav-indicator.pos-3 {
+            transform: translateX(345%)
+        }
+
+        .nav-indicator.pos-4 {
+            transform: translateX(460%)
+        }
+
+        @media (max-width:400px) {
+            .cube-wrapper {
+                width: 190px;
+                height: 190px
+            }
+
+            .cube {
+                width: 150px;
+                height: 150px
+            }
+
+            .logo-under-cube-title {
+                font-size: 16px
+            }
+
+            .share-whatsapp-card {
+                flex-direction: column;
+                align-items: stretch
+            }
+
+            .share-whatsapp-card button {
+                justify-content: center;
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <div class="app-scroll">
+            <section id="home" class="page active">
+                <div class="cube-wrapper">
+                    <div class="cube">
+                        <div class="cube-face front"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face bottom"></div>
+                    </div>
+                </div>
+                <div class="logo-under-cube">
+                    <div class="logo-under-cube-title">
+                        <span>Guru Krupa ASTROLOGY AND VASTU</span>
+                        <span>CENTER</span>
+                    </div>
+                    <div class="owner">
+                        <strong>GURURAJ DITXIT</strong>
+                        <span>OWNER</span>
+                    </div>
+                </div>
+                <div class="action-row">
+                    <button class="btn-pill"><i class="fa-solid fa-phone"></i><span>Call</span></button>
+                    <button class="btn-pill"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></button>
+                    <button class="btn-pill"><i class="fa-solid fa-envelope"></i><span>Mail</span></button>
+                </div>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-text"><a href="tel:9663396684">9663396684</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-text"><a href="tel:8088739080">8088739080</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-text"><a
+                                href="mailto:panditguruditxit@gmail.com">panditguruditxit@gmail.com</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-text">Your Full Address Here</div>
+                    </div>
+                </div>
+                <div class="share-whatsapp-card">
+                    <input type="tel" id="sharePhone" placeholder="+91">
+                    <button id="shareBtn"><i class="fa-brands fa-whatsapp"></i><span>Share on WhatsApp</span></button>
+                </div>
+                <div class="bottom-actions">
+                    <button><i class="fa-solid fa-user-plus"></i><span>Save to Contacts</span></button>
+                    <button><i class="fa-solid fa-share-nodes"></i><span>Share</span></button>
+                </div>
+            </section>
+            <section id="about" class="page">
+                <h2 class="page-heading">About Us</h2>
+                <div class="card">
+                    Guru Krupa Astrology And Vastu Center provides guidance in astrology, vastu consultancy, horoscope
+                    reading and related spiritual services. Add your detailed introduction text here.
+                </div>
+                <div class="card">
+                    <ul>
+                        <li>Personal horoscope and kundali analysis</li>
+                        <li>Vastu shastra consultation for home and office</li>
+                        <li>Matchmaking and marriage compatibility</li>
+                        <li>Festival and special puja arrangements</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="products" class="page">
+                <h2 class="page-heading">Products & Services</h2>
+                <div class="card">
+                    <ul class="product-list">
+                        <li>Detailed Kundali Report</li>
+                        <li>Yearly Prediction Package</li>
+                        <li>Vastu Visit and Report</li>
+                        <li>Gemstone Suggestion Session</li>
+                        <li>Online Consultation (Video/Call)</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="shop" class="page">
+                <h2 class="page-heading">Shop</h2>
+                <div class="shop-grid">
+                    <div class="shop-item">
+                        <div>Gemstones</div>
+                        <span>Customized recommendation</span>
+                    </div>
+                    <div class="shop-item">
+                        <div>Rudraksha</div>
+                        <span>Certified beads</span>
+                    </div>
+                    <div class="shop-item">
+                        <div>Puja Kits</div>
+                        <span>Ready to use</span>
+                    </div>
+                    <div class="shop-item">
+                        <div>Yantras</div>
+                        <span>Energized yantras</span>
+                    </div>
+                </div>
+            </section>
+            <section id="gallery" class="page">
+                <h2 class="page-heading">Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-cell">Center Photo</div>
+                    <div class="gallery-cell">Puja</div>
+                    <div class="gallery-cell">Client</div>
+                    <div class="gallery-cell">Office</div>
+                    <div class="gallery-cell">Event</div>
+                    <div class="gallery-cell">More</div>
+                </div>
+            </section>
+        </div>
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-target="home"><i
+                    class="fa-solid fa-house"></i><span>Home</span></button>
+            <button class="nav-item" data-target="about"><i class="fa-solid fa-user"></i><span>About Us</span></button>
+            <button class="nav-item" data-target="products"><i class="fa-solid fa-clipboard-list"></i><span>Product &
+                    Services</span></button>
+            <button class="nav-item" data-target="shop"><i class="fa-solid fa-store"></i><span>Shop</span></button>
+            <button class="nav-item" data-target="gallery"><i
+                    class="fa-solid fa-image"></i><span>Gallery</span></button>
+            <div class="nav-indicator pos-0" id="navIndicator"></div>
+        </nav>
+        <script>
+            const navItems = document.querySelectorAll(".nav-item");
+            const pages = document.querySelectorAll(".page");
+            const indicator = document.getElementById("navIndicator");
+            navItems.forEach((btn, index) => { btn.addEventListener("click", () => { navItems.forEach(b => b.classList.remove("active")); btn.classList.add("active"); pages.forEach(p => p.classList.remove("active")); document.getElementById(btn.dataset.target).classList.add("active"); indicator.className = "nav-indicator pos-" + index }) });
+            document.getElementById("shareBtn").addEventListener("click", () => { const input = document.getElementById("sharePhone"); const phone = input.value.trim(); if (!phone) return; const url = "https://wa.me/" + phone.replace(/[^\d]/g, "") + "?text=" + encodeURIComponent("Guru Krupa Astrology And Vastu Center contact card"); window.open(url, "_blank") });
+        </script>
+    </div>
+</body>
+
+</html>
